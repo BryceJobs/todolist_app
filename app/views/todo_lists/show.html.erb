@@ -1,0 +1,61 @@
+
+<div class="col-md-8 centered-col">
+	<div class="panel panel-default">
+	  
+	  <div class="panel-heading clearfix">
+			<h3 class="panel-title pull-left"><%= @todo_list.title %></h3>
+			<small class='panel-title pull-right'><%= pluralize @todo_list.list_items.incomplete_task.size, "Task" %> remaining</small>
+	  </div>
+		
+		<br>
+	  <div class="panel-body">
+		
+			<p class="well"><%= @todo_list.description %></p>
+			<br>
+			<h3 class="text-center">List Items</h3>
+			<table class="table">
+				<% @todo_list.list_items.each do |item| %>
+					<tr>
+						<% if item.complete? %>
+							
+							<td>	
+								<i class="fa fa-check-square-o"></i>
+							</td>
+							<td><s> <%= item.description %></s></td>
+							<td>
+								<i class="fa fa-trash-o"></i>
+							</td>
+
+						<% else %>
+							
+							<td>
+								<%= link_to completed_todo_list_list_item_path(@todo_list, item), method: :patch do %>
+									<i class="fa fa-square-o"></i>
+								<% end -%>
+							</td>
+							<td><%= item.description %></td>
+							<td>
+								<%= link_to todo_list_list_item_path(@todo_list, item), method: :delete, data: {confirm: 'Are you sure'} do %>
+									<i class="fa fa-trash-o"></i>
+								<% end -%>
+							</td>
+							
+						<% end -%>
+						
+					</tr>
+				<% end -%>
+			</table>
+			
+			<br>
+			<div class="col-md-12">
+				<%= render 'list_items/form' %>
+			</div>
+
+	  </div>
+
+	  <div class="panel-footer text-center">
+	  	<%= link_to "edit", edit_todo_list_path(@todo_list), class: 'btn btn-info' %>
+			<%= link_to "delete", todo_list_path(@todo_list), method: :delete, data: {confirm: 'Are you sure'}, class: 'btn btn-danger' %>
+	  </div>
+	</div>
+</div>

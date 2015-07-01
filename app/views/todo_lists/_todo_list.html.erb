@@ -1,0 +1,4 @@
+<h2><%= link_to todo_list.title, todo_list_path(todo_list) %></h2>
+<p><%= todo_list.description  %></p>
+<%= link_to "edit", edit_todo_list_path(todo_list), class: 'btn btn-info' %>
+<%= link_to "delete", todo_list_path(todo_list), method: :delete, data: {confirm: 'Are you sure'}, class: 'btn btn-danger' %>

@@ -1,0 +1,4 @@
+<%= simple_form_for [@todo_list, @todo_list.list_items.build], wrapper: :inline_form,  html: { class: 'form-inline' } do |f| %>
+	<%= f.input :description, label: 'New Task', placeholder: 'Add a new task to the list', input_html: {maxlength: 50} %>
+	<%= f.button :submit %>
+<% end -%>
