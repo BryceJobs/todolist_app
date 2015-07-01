@@ -20,6 +20,8 @@ body{
 	font-family: 'Indie Flower', cursive;
 	font-weight: 400;
 	margin-top: 70px;
+	background-color: teal;
+	color: white;
 
 	p{
 		font-size: 1.3em;
@@ -30,9 +32,17 @@ body{
 		margin: 10px auto;
 	}
 
-	.navbar span{
+	.navbar-btn{
 		margin-right: 10px;
-		font-size: 1.1em;
+		//font-size: 1.1em;
+	}
+
+	a{
+		color: #15E3EA
+	}
+
+	.panel{
+		color: black;
 	}
 
 }
